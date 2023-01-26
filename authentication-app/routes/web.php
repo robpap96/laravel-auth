@@ -15,7 +15,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-// 🕊️ Rotte pubbliche
+// 🕊️ Rotte pubbliche del front-office
 Route::get('/', function () {
     return view('welcome');
 });
