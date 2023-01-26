@@ -28,7 +28,7 @@ class ProjectController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.projects.create');
     }
 
     /**
@@ -39,7 +39,14 @@ class ProjectController extends Controller
      */
     public function store(StoreProjectRequest $request)
     {
-        //
+        $data = $request->validated();
+
+        $new_project = new Project();
+        $new_project->fill($data);
+        $new_project->slug = Str::slug($new_project->name);
+        $new_project->save();
+
+        return redirect()->route(admin.projects.index)->with('message', "Progetto aggiunto con successo!");
     }
 
     /**
@@ -50,7 +57,7 @@ class ProjectController extends Controller
      */
     public function show(Project $project)
     {
-        //
+        return view('admin.projects.show');
     }
 
     /**
@@ -61,7 +68,7 @@ class ProjectController extends Controller
      */
     public function edit(Project $project)
     {
-        //
+        return view('admin.projects.edit', compact('project'));
     }
 
     /**
@@ -73,7 +80,14 @@ class ProjectController extends Controller
      */
     public function update(UpdateProjectRequest $request, Project $project)
     {
-        //
+        $data = $request->validated();
+
+        $old_title = $project->title;
+
+        $project->slug = Str::slug($data['name']);
+        $project->update($data);
+
+        return redirect()->route('admin.projects.index')->with('message', "Progetto $old_title modificato con successo!");
     }
 
     /**
@@ -84,6 +98,9 @@ class ProjectController extends Controller
      */
     public function destroy(Project $project)
     {
-        //
+        $project->delete();
+
+        return redirect()->route('admin.projects.index')->with('message', "Il progetto $old_title è stato cancellato con successo!");
     }
 }
+
