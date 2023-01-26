@@ -98,7 +98,7 @@
                       class="nav-link text-white {{ Route::currentRouteName() == 'admin.index' ? 'bg-secondary' : '' }}"
                       href="{{route('admin.projects.index')}}"
                     >
-                      <i class="fa-solid fa-tachometer-alt fa-lg fa-fw"></i>
+                    <i class="fa-duotone fa-table-list"></i>
                       Lista Progetti
                     </a>
                   </li>
