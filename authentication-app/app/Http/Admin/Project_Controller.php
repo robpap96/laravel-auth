@@ -5,9 +5,10 @@ namespace App\Http\Admin;
 use App\Http\Requests\StoreProjectRequest;
 use App\Http\Requests\UpdateProjectRequest;
 use App\Http\Controllers\Controller;
+use Illuminate\Validation\Rule;
 use App\Models\Project;
 
-class ProjectController extends Controller
+class Project_Controller extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -46,7 +47,7 @@ class ProjectController extends Controller
         $new_project->slug = Str::slug($new_project->name);
         $new_project->save();
 
-        return redirect()->route(admin.projects.index)->with('message', "Progetto aggiunto con successo!");
+        return redirect()->route('admin.projects.index', $new_project->id)->with('message', "Progetto aggiunto con successo!");
     }
 
     /**
@@ -57,7 +58,7 @@ class ProjectController extends Controller
      */
     public function show(Project $project)
     {
-        return view('admin.projects.show');
+        return view('admin.projects.show', compact('project'));
     }
 
     /**
@@ -82,12 +83,12 @@ class ProjectController extends Controller
     {
         $data = $request->validated();
 
-        $old_title = $project->title;
+        $old_name = $project->name;
 
         $project->slug = Str::slug($data['name']);
         $project->update($data);
 
-        return redirect()->route('admin.projects.index')->with('message', "Progetto $old_title modificato con successo!");
+        return redirect()->route('admin.projects.index')->with('message', "Progetto $old_name modificato con successo!");
     }
 
     /**

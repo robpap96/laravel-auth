@@ -2,7 +2,7 @@
 
 @section('content')
 <div class="container">
-    <h1>Modifica: {{$project->title}}</h1>
+    <h1>Modifica: {{$project->name}}</h1>
 
     <form action="{{route('admin.projects.update', $project->id)}}" method="POST">
         @csrf
@@ -55,7 +55,7 @@
             @enderror
         </div> 
 
-        <button type="submit" class="btn btn-success">Crea</button>
+        <button type="submit" class="btn btn-success">Accetta Modifiche</button>
 
 
     </form>

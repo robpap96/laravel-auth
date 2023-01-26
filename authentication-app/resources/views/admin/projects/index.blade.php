@@ -23,8 +23,8 @@
           <td>{{ $project->created_on }}</td>
           <td>{{ $project->private }}</td>
           <td>
-            <a class="btn btn-warning" href="{{route('admin.projects.show', $project->id))}}">Vedi</a>
-            <a class="btn btn-secondary" href="{{route('admin.projects.create', $project->id))}}">Modifica</a>
+            <a class="btn btn-warning" href="{{route('admin.projects.show', $project->id)}}">Vedi</a>
+            <a class="btn btn-secondary" href="{{route('admin.projects.edit', $project->id)}}">Modifica</a>
             <form action="{{route('admin.projects.destroy', $project->id)}}" method="POST">
                 @csrf
                 @method('DELETE')

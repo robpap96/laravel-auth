@@ -1,7 +1,7 @@
 <?php
 
 use App\Http\Controllers\ProfileController;
-use App\Http\Admin\ProjectController;
+use App\Http\Admin\Project_Controller;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -26,7 +26,7 @@ Route::middleware('auth')->prefix('admin')->name('admin.')->group(function () {
         return view('admin.dashboard');
     })->name('dashboard');
 
-    Route::resource('projects', ProjectController::class);
+    Route::resource('projects', Project_Controller::class);
 });
 
 // 🛡️ Tutte le rotte di autenticazione (registrazione, login ecc...)
