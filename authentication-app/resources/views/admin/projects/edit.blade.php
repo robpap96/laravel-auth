@@ -27,15 +27,7 @@
                 <div>
             @enderror
         </div>
-        <div class="mb-3">
-            <label for="slug" class="form-label">Slug*</label>
-            <input type="text" class="form-control @error('slug') is-invalid @enderror" id="slug" name="slug" maxlength="200" value="{{old('slug')}}">
-            @error('slug')
-                <div class="alert alert-danger">
-                    {{$message}}
-                <div>
-            @enderror
-        </div> 
+
         <div class="form-group mb-3">
             <label class="active" for="created_on">Creato il*</label>
             <input type="date" class="@error('created_on') is-invalid @enderror" id="created_on" name="created_on" value="{{old('created_on')}}">

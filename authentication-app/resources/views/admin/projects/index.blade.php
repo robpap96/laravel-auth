@@ -3,7 +3,7 @@
 @section('content')
 <table class="table">
     
-    <a class="btn btn-primary" href="{{route('admin.projects.create')}}">Aggiungi Progetto</a>
+    <a class="btn btn-primary" href="{{ route('admin.projects.create') }}">Aggiungi Progetto</a>
 
     <thead>
       <tr>

@@ -87,7 +87,7 @@
                 <li class="nav-item">
                   <a
                     class="nav-link text-white {{ Route::currentRouteName() == 'admin.dashboard' ? 'bg-secondary' : '' }}"
-                    href="{{route('admin.projects.index')}}"
+                    href="{{route('admin.dashboard')}}"
                   >
                     <i class="fa-solid fa-tachometer-alt fa-lg fa-fw"></i>
                     Dashboard
@@ -95,7 +95,7 @@
                 </li>
                 <li class="nav-item">
                     <a
-                      class="nav-link text-white {{ Route::currentRouteName() == 'admin.index' ? 'bg-secondary' : '' }}"
+                      class="nav-link text-white {{ Route::currentRouteName() == 'admin.projects.index' ? 'bg-secondary' : '' }}"
                       href="{{route('admin.projects.index')}}"
                     >
                     <i class="fa-duotone fa-table-list"></i>

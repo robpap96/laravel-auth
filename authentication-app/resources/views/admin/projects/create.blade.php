@@ -4,7 +4,7 @@
 <div class="container">
     <h1>Aggiungi un nuovo progetto</h1>
 
-    <form action="{{route('admin.projects.store')}}" method="POST">
+    <form action="{{ route('admin.projects.store') }}" method="POST" enctype="multipart/form-data">
         @csrf
 
         <div class="mb-3">
@@ -25,15 +25,7 @@
                 <div>
             @enderror
         </div>
-        <div class="mb-3">
-            <label for="slug" class="form-label">Slug*</label>
-            <input type="text" class="form-control @error('slug') is-invalid @enderror" id="slug" name="slug" maxlength="200" value="{{old('slug')}}">
-            @error('slug')
-                <div class="alert alert-danger">
-                    {{$message}}
-                <div>
-            @enderror
-        </div> 
+
         <div class="form-group mb-3">
             <label class="active" for="created_on">Creato il*</label>
             <input type="date" class="@error('created_on') is-invalid @enderror" id="created_on" name="created_on" value="{{old('created_on')}}">
@@ -53,9 +45,7 @@
             @enderror
         </div> 
 
-        <button type="submit" class="btn btn-success">Salva</button>
-        <button type="reset" class="btn btn-danger">Reset</button>
-
+        <button type="submit" class="btn btn-success">Aggiungi</button>
     </form>
 </div>
 @endsection

@@ -26,14 +26,15 @@ class UpdateProjectRequest extends FormRequest
     {
         return [
             'name' => [
-                'required',
-                Rule::unique('projects')->ignore($this->projects),
-                'string|max:100',
+                "required",
+                Rule::unique('projects')->ignore($this->project),
+                "string",
+                "max:100",
             ],
-            'content' => 'required|text',
-            'slug' => 'required|string',
-            'created_on' => 'required|date',
-            'private' => 'required|boolean',
+            "content" => "required|string",
+            "slug" => "required|string",
+            "created_on" => "required|date",
+            "private" => "required|boolean",
         ];
     }
 }
