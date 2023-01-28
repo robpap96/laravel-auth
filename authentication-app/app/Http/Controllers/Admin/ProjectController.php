@@ -91,6 +91,12 @@ class ProjectController extends Controller
         $old_name = $project->name;
 
         $project->slug = Str::slug($data['name']);
+        
+        if(isset($data['cover_image'])){
+            Storage::disk('public')->delete($project->cover_image);
+            $data['cover_image'] = Storage::disk('public')->put('uploads', $data['cover_image']);
+        }
+
         $project->update($data);
 
         return redirect()->route('admin.projects.index')->with('message', "Progetto $old_name modificato con successo!");
@@ -105,6 +111,9 @@ class ProjectController extends Controller
     public function destroy(Project $project)
     {
         $old_name = $project->name;
+        if($project->cover_image){
+            Storage::disk('public')->delete($project->cover_image);
+        }
         $project->delete();
 
         return redirect()->route('admin.projects.index')->with('message', "Il progetto $old_name è stato cancellato con successo!");

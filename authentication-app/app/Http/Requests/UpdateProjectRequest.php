@@ -32,7 +32,7 @@ class UpdateProjectRequest extends FormRequest
                 "max:100",
             ],
             "content" => "required|string",
-            "slug" => "required|string",
+            "cover_image" => "nullable|image|max:2048",
             "created_on" => "required|date",
             "customer" => "required|string",
             "private" => "required|boolean",
