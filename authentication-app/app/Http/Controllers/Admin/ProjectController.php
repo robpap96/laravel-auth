@@ -43,6 +43,10 @@ class ProjectController extends Controller
     {
         $data = $request->validated();
 
+        if( $data['cover_image']) {
+            $data['cover_image'] = Storage::disk('public')->put('uploads', $data['cover_image']);
+        }
+
         $new_project = new Project();
         $new_project->fill($data);
         $new_project->slug = Str::slug($new_project->name);

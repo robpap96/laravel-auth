@@ -17,8 +17,10 @@ return new class extends Migration
             $table->id();
             $table->string('name', 100)->unique();
             $table->text('content');
+            $table->string('cover_image')->nullable;
             $table->string('slug');
             $table->date('created_on');
+            $table->string('customer');
             $table->boolean('private');
             $table->timestamps();
         });
