@@ -34,6 +34,7 @@ class UpdateProjectRequest extends FormRequest
             "content" => "required|string",
             "slug" => "required|string",
             "created_on" => "required|date",
+            "customer" => "required|string",
             "private" => "required|boolean",
         ];
     }

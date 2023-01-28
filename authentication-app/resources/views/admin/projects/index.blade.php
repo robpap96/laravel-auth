@@ -12,6 +12,7 @@
         <th scope="col">Slug</th>
         <th scope="col">Creato il</th>
         <th scope="col">Privato</th>
+        <th scope="col">Azioni</th>
       </tr>
     </thead>
     <tbody>

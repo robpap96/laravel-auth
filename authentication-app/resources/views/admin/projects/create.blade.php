@@ -18,7 +18,7 @@
         </div>
         <div class="mb-3">
             <label for="content" class="form-label">Contenuto*</label>
-            <input type="text" class="form-control @error('content') is-invalid @enderror" id="content" name="content">{{old('content')}}
+            <textarea class="form-control @error('content') is-invalid @enderror" id="content" name="content" rows="10">{{old('content')}}</textarea>
             @error('content')
                 <div class="alert alert-danger">
                     {{$message}}
