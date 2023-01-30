@@ -44,7 +44,7 @@ class ProjectController extends Controller
         $data = $request->validated();
 
         if( $data['cover_image']) {
-            $data['cover_image'] = Storage::disk('public')->put('uploads', $data['cover_image']);
+            $data['cover_image'] = Storage::put('uploads', $data['cover_image']);
         }
 
         $new_project = new Project();
@@ -93,8 +93,8 @@ class ProjectController extends Controller
         $project->slug = Str::slug($data['name']);
         
         if(isset($data['cover_image'])){
-            Storage::disk('public')->delete($project->cover_image);
-            $data['cover_image'] = Storage::disk('public')->put('uploads', $data['cover_image']);
+            Storage::delete($project->cover_image);
+            $data['cover_image'] = Storage::put('uploads', $data['cover_image']);
         }
 
         $project->update($data);
@@ -112,7 +112,7 @@ class ProjectController extends Controller
     {
         $old_name = $project->name;
         if($project->cover_image){
-            Storage::disk('public')->delete($project->cover_image);
+            Storage::delete($project->cover_image);
         }
         $project->delete();
 
